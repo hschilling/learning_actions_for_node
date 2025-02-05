@@ -7,6 +7,13 @@ describe('Calculator', () => {
         calculator = new Calculator();
     });
 
+    describe('check_api_key', () => {
+        it('see if api from secrets works', () => {
+            expect(process.env.API_KEY).toBe(123456);
+        });
+
+    });
+
     describe('add', () => {
         it('should add two positive numbers correctly', () => {
             expect(calculator.add(2, 3)).toBe(5);
