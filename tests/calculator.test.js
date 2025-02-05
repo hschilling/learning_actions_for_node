@@ -1,3 +1,7 @@
+// In your test setup file or at the start of your tests
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const Calculator = require('../src/calculator');
 
 describe('Calculator', () => {
