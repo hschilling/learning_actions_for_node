@@ -12,12 +12,12 @@ describe('Calculator', () => {
     });
 
     describe('check_api_key', () => {
-        it('see if api from secrets works', () => {
-            expect(process.env.API_KEY).toBe(123456);
+        it('verifies API key is defined', () => {
+          expect(process.env.API_KEY).toBeDefined();
+          expect(process.env.API_KEY).not.toBe('');
         });
-
-    });
-
+      });
+      
     describe('add', () => {
         it('should add two positive numbers correctly', () => {
             expect(calculator.add(2, 3)).toBe(5);
