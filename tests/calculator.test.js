@@ -1,3 +1,7 @@
+// In your test setup file or at the start of your tests
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const Calculator = require('../src/calculator');
 
 describe('Calculator', () => {
@@ -5,6 +9,13 @@ describe('Calculator', () => {
 
     beforeEach(() => {
         calculator = new Calculator();
+    });
+
+    describe('check_api_key', () => {
+        it('see if api from secrets works', () => {
+            expect(process.env.API_KEY).toBe(123456);
+        });
+
     });
 
     describe('add', () => {
